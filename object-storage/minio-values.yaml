@@ -1,0 +1,10 @@
+mode: standalone
+
+rootUser: "minio"
+rootPassword: "minio123"
+
+resources:
+  requests:
+    memory: 512Mi
+
+replicas: 1

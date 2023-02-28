@@ -1,0 +1,24 @@
+image:
+  tag: "407"
+server:
+  workers: 3
+coordinator:
+  jvm:
+    maxHeapSize: "8G"
+worker:
+  jvm:
+    maxHeapSize: "8G"
+
+additionalCatalogs:
+   iceberg: |-
+     connector.name=iceberg
+     iceberg.catalog.type=jdbc
+     iceberg.jdbc-catalog.catalog-name=minio
+     iceberg.jdbc-catalog.connection-url=jdbc:postgresql://postgresql:5432/postgres
+     iceberg.jdbc-catalog.connection-user=postgres
+     iceberg.jdbc-catalog.connection-password=postgres
+     iceberg.jdbc-catalog.default-warehouse-dir: s3://lakehouse
+     hive.s3.path-style-access=true
+     hive.s3.endpoint=http://minio-cluster:9000
+     hive.s3.aws-access-key=minio
+     hive.s3.aws-secret-key=minio123
